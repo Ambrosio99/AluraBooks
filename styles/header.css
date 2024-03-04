@@ -1,0 +1,148 @@
+.cabecalho {
+  background-color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.cabecalho-menu-hamburguer {
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+.container-img {
+  padding: 1em;
+}
+
+.lista-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 60vw;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.192);
+  z-index: 20;
+}
+.container-botao {
+  display: none;
+}
+.container-botao:checked ~ .lista-menu {
+  display: block;
+  width: auto;
+}
+.container-botao:checked ~ .container-rotulo > .cabecalho-menu-hamburguer {
+  background-image: url("../img/Menu Aberto.svg");
+}
+.container-botao:checked ~ .container-rotulo {
+  background: var(--azul-degrade);
+}
+
+.lista-menu-titulo,
+.lista-menu-item {
+  padding: 1em;
+  background-color: var(--branco);
+}
+.lista-menu-titulo {
+  color: var(--laranja);
+  font-weight: 700;
+}
+
+.lista-menu-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--azul-degrade);
+}
+
+.container-titulo,
+.opcoes,
+.container-texto {
+  display: none;
+}
+
+/* RESPONSIVE TABLET */
+
+@media screen and (min-width: 1024px) {
+  .container-titulo,
+  .container-titulo-negrito {
+    font-family: var(--fonte-secundario);
+    font-size: 1.875rem;
+  }
+  .container-titulo {
+    display: block;
+    font-weight: 400;
+  }
+  .container-titulo-negrito {
+    font-weight: 700;
+  }
+
+  .opcoes {
+    display: flex;
+  }
+  .opcoes-item {
+    padding: 0 1em;
+    text-transform: uppercase;
+  }
+  .opcoes-link {
+    text-decoration: none;
+    color: var(--preto);
+  }
+
+  .opcoes-botao:checked ~ .lista-menu {
+    display: block;
+    width: auto;
+  }
+  .opcoes-botao {
+    display: none;
+  }
+
+  .opcoes-botao:checked ~ .opcoes-rotulo > .opcoes-item {
+    background: var(--azul-degrade);
+    color: var(--branco);
+  }
+  .opcoes-item {
+    padding: 2em 1em;
+    cursor: pointer;
+  }
+  .lista-menu-item:hover {
+    background: var(--azul-degrade);
+  }
+  .lista-menu-item:hover > .lista-menu-link {
+    -webkit-text-fill-color: var(--branco);
+    text-decoration: none;
+  }
+
+  .fav-svg,
+  .cabecalho-menu-hamburguer {
+    display: none;
+  }
+}
+
+/* RESPONSIVE DESKTOP */
+
+@media screen and (min-width: 1300px) {
+  .container-texto {
+    display: block;
+  }
+  .container {
+    padding: 0 1em 0 2em;
+  }
+  .container-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--preto);
+    padding-right: 2em;
+  }
+  .opcoes {
+    margin-right: auto;
+    padding-left: 2em;
+  }
+}
